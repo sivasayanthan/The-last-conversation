@@ -37,16 +37,44 @@ const questionText = document.getElementById("questionText");
 const ending = document.getElementById("ending");
 
 startBtn.addEventListener("click", startConversation);
-
 function startConversation(){
 
-container.classList.add("hidden");
+    container.classList.add("hidden");
 
-conversation.classList.remove("hidden");
+    conversation.classList.remove("hidden");
 
-typeLine(line1,
-"Connection Established...",
-100,
+    typeLine(
+        line1,
+        "Connection Established...",
+        50,
+        function(){
+
+            typeLine(
+                line2,
+                "Identity Unknown...",
+                50,
+                function(){
+
+                    typeLine(
+                        line3,
+                        "Beginning Final Session...",
+                        50,
+                        function(){
+
+                            setTimeout(function(){
+                                showQuestion();
+                            },1000);
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+                        },
 
 function(){
 
@@ -247,31 +275,7 @@ showQuestion();
 },1000);
 
 }
-
-function showEnding(){
-
-conversation.classList.add("hidden");
-
-ending.classList.remove("hidden");
-
-}
-const finalMessages = [
-
-"You never answered my questions.",
-
-"You answered yourself.",
-
-"Every choice you made revealed a small part of how you think.",
-
-"I cannot predict your future.",
-
-"But your next decision will shape it more than anything I could say.",
-
-"This conversation is over.",
-
-"The rest belongs to you."
-
-];
+;
 
 function showEnding(){
 
