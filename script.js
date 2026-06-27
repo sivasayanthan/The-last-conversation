@@ -91,30 +91,24 @@ callback();
 
 }
 
-
-
-
-
 function showQuestion(){
-
 
 questionBox.classList.remove("hidden");
 
 
 questionNumber.innerHTML =
-"Question "+(currentQuestion+1)+" of "+questions.length;
+"Question " + (currentQuestion+1) + " of 5";
 
 
 questionText.innerHTML =
 questions[currentQuestion];
 
 
-
-const area =
-document.getElementById("answerArea");
+const area = document.getElementById("answerArea");
 
 
 
+// Question 3 and 5 (index 2 and 4)
 if(currentQuestion === 2 || currentQuestion === 4){
 
 
@@ -122,14 +116,21 @@ area.innerHTML = `
 
 <input id="textAnswer"
 placeholder="Type your answer..."
-style="padding:15px;width:80%;font-size:18px;background:black;color:white;border:1px solid white;">
+style="
+padding:15px;
+width:80%;
+font-size:18px;
+background:black;
+color:white;
+border:1px solid white;
+">
 
 
 <br><br>
 
 
-<button id="submitTextBtn">
-SUBMIT
+<button id="nextTextBtn">
+NEXT
 </button>
 
 `;
@@ -143,6 +144,7 @@ else{
 
 area.innerHTML = `
 
+
 <button onclick="answer('YES')">
 YES
 </button>
@@ -152,12 +154,107 @@ YES
 NO
 </button>
 
+
 `;
 
 }
 
 
 }
+
+
+
+
+function answer(choice){
+
+
+answers.push({
+
+question:questions[currentQuestion],
+answer:choice
+
+});
+
+
+goNext();
+
+
+}
+
+
+
+
+function goNext(){
+
+
+questionBox.classList.add("hidden");
+
+
+currentQuestion++;
+
+
+if(currentQuestion >= questions.length){
+
+setTimeout(showEnding,1000);
+
+}
+
+else{
+
+setTimeout(showQuestion,800);
+
+}
+
+
+}
+
+
+
+
+document.addEventListener("click",function(e){
+
+
+
+if(e.target.id==="nextTextBtn"){
+
+
+
+let input =
+document.getElementById("textAnswer").value;
+
+
+
+if(input.trim()===""){
+
+alert("Please write an answer");
+
+return;
+
+}
+
+
+
+answers.push({
+
+question:questions[currentQuestion],
+answer:input
+
+});
+
+
+
+goNext();
+
+
+
+}
+
+
+
+});
+
+
+
 
 
 
