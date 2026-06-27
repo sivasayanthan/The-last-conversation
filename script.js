@@ -99,7 +99,6 @@ callback();
 },speed);
 
 }
-
 function showQuestion(){
 
 questionBox.classList.remove("hidden");
@@ -108,7 +107,48 @@ questionNumber.innerHTML="Question "+(currentQuestion+1)+" of 5";
 
 questionText.innerHTML=questions[currentQuestion];
 
+const area = document.getElementById("answerArea");
+
+if(currentQuestion === 2 || currentQuestion === 4){
+
+area.innerHTML = `
+<input id="textAnswer" 
+placeholder="Type your answer..." 
+style="padding:15px;width:80%;font-size:18px;background:black;color:white;border:1px solid white;">
+
+<br><br>
+
+<button onclick="submitTextAnswer()">
+SUBMIT
+</button>
+`;
+
+}
+else{
+
+area.innerHTML = `
+
+<button onclick="answer('YES')">YES</button>
+
+<button onclick="answer('NO')">NO</button>
+
+`;
+
+}
+
+}
+
+
+function submitTextAnswer(){
+
+const input = document.getElementById("textAnswer").value;
+
+if(input.trim()=="") return;
+
+answer(input);
+
   }
+
 function answer(choice){
 
 answers.push({
