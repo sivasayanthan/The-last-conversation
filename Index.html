@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Fifth Question</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+
+<h1 id="title">
+THE FIFTH QUESTION
+</h1>
+
+<p id="subtitle">
+This conversation will happen only once.
+</p>
+
+<div class="cursor">|</div>
+
+<button id="startBtn">
+Press ENTER
+</button>
+
+</div>
+
+<div id="conversation" class="hidden">
+
+<div class="terminal">
+
+<p class="line" id="line1"></p>
+
+<p class="line" id="line2"></p>
+
+<p class="line" id="line3"></p>
+
+</div>
+
+<div id="questionBox" class="hidden">
+
+<h2 id="questionNumber">
+Question 1 of 5
+</h2>
+
+<p id="questionText">
+
+</p>
+
+<div class="buttons">
+
+<button onclick="answer('YES')">
+YES
+</button>
+
+<button onclick="answer('NO')">
+NO
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="ending" class="hidden">
+
+<h1>
+
+You came here expecting answers.
+
+</h1>
+
+<h2>
+
+Instead...
+
+</h2>
+
+<h2>
+
+You left with a question only you can answer.
+
+</h2>
+
+<p>
+
+The conversation has ended.
+
+</p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+  </html>
