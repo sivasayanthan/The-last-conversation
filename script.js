@@ -117,11 +117,10 @@ placeholder="Type your answer..."
 style="padding:15px;width:80%;font-size:18px;background:black;color:white;border:1px solid white;">
 
 <br><br>
-
-<button onclick="submitTextAnswer()">
+<button id="submitTextBtn">
 SUBMIT
 </button>
-`;
+
 
 }
 else{
@@ -342,4 +341,40 @@ callback();
 
 }
 
-  }
+  } 
+  document.addEventListener("click", function(e){
+
+if(e.target.id === "submitTextBtn"){
+
+let input = document.getElementById("textAnswer").value;
+
+if(input.trim()===""){
+alert("Please write an answer");
+return;
+}
+
+answers.push({
+question: questions[currentQuestion],
+answer: input
+});
+
+
+questionBox.classList.add("hidden");
+
+currentQuestion++;
+
+
+if(currentQuestion >= questions.length){
+
+setTimeout(showEnding,1000);
+
+}
+else{
+
+setTimeout(showQuestion,1000);
+
+}
+
+}
+
+});
