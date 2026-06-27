@@ -147,6 +147,16 @@ if(input.trim()=="") return;
 
 answer(input);
 
+}
+
+function submitTextAnswer(){
+
+const input = document.getElementById("textAnswer").value;
+
+if(input.trim()=="") return;
+
+answer(input);
+
   }
 
 function answer(choice){
