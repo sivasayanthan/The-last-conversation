@@ -143,12 +143,31 @@ function submitTextAnswer(){
 
 const input = document.getElementById("textAnswer").value;
 
-if(input.trim()=="") return;
+if(input.trim()==""){
+    return;
+}
 
-answer(input);
+answers.push({
+    question: questions[currentQuestion],
+    answer: input
+});
+
+questionBox.classList.add("hidden");
+
+currentQuestion++;
+
+if(currentQuestion >= questions.length){
+
+    setTimeout(showEnding,1000);
+
+}
+else{
+
+    setTimeout(showQuestion,1000);
 
 }
 
+  }
 function submitTextAnswer(){
 
 const input = document.getElementById("textAnswer").value;
